@@ -13,7 +13,7 @@ Fake news is false information disseminated through social media and other onlin
 
 ## Chart
 
-![alt text](https://github.com/YuioiuY/Fake_News/blob/main/source/Figure.png)
+![alt text](https://github.com/YuioiuY/Fake_News/blob/main/source/img2read/Figure.png)
 
 ### Axes:
  - Horizontal axis (Predicted): Values predicted by the model.
