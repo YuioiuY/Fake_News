@@ -9,18 +9,18 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 data = pd.read_csv('source/fake_news.csv')
 print(data.head())
 
-X = data['text']
+x = data['text']
 y = data['label']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=7)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=7)
 
 tfidf_vectorizer = TfidfVectorizer(stop_words='english', max_df=0.7)
-X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
-X_test_tfidf = tfidf_vectorizer.transform(X_test)
+x_train_tfidf = tfidf_vectorizer.fit_transform(x_train)
+x_test_tfidf = tfidf_vectorizer.transform(x_test)
 
 pac = PassiveAggressiveClassifier(max_iter=50)
-pac.fit(X_train_tfidf, y_train)
+pac.fit(x_train_tfidf, y_train)
 
-y_pred = pac.predict(X_test_tfidf)
+y_pred = pac.predict(x_test_tfidf)
 
 accuracy = accuracy_score(y_test, y_pred)
 conf_matrix = confusion_matrix(y_test, y_pred)
